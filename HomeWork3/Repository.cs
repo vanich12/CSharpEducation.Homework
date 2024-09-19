@@ -8,19 +8,32 @@ using System.Threading.Tasks;
 namespace HomeWork3
 {
     /// <summary>
-    /// Абстрактный репозиторий
+    /// Представляет репозиторий для управления коллекцией объектов типа <typeparamref name="T"/>.
+    /// Класс предназначен для реализации операций добавления, удаления, получения и отображения объектов в хранилище.
     /// </summary>
+    /// <typeparam name="T">Тип объектов, которые будут храниться в репозитории. Должен быть наследником класса <see cref="Person"/>.</typeparam>
     public abstract class Repository<T> where T : Person
     {
         #region Поля и свойства
 
+        /// <summary>
+        /// Путь к файлу, используемому для хранения данных.
+        /// </summary>
         private readonly string _filePath;
+
+        /// <summary>
+        /// Список объектов, хранящихся в репозитории.
+        /// </summary>
         private List<T> _abonents = new List<T>();
 
         #endregion
 
         #region Конструкторы
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Repository{T}"/> с заданным путем для хранения данных.
+        /// </summary>
+        /// <param name="filePath">Путь к файлу, в котором будут храниться данные.</param>
         public Repository(string filePath)
         {
             this._filePath = filePath;
@@ -29,31 +42,33 @@ namespace HomeWork3
         #endregion
 
         #region Методы
+
         /// <summary>
-        /// Абстрактный метод добавления человека в хранилище
+        /// Добавляет объект в хранилище.
         /// </summary>
-        /// <param name="entry"></param>
+        /// <param name="entry">Объект, который нужно добавить в хранилище.</param>
         public abstract void AddPerson(T entry);
 
         /// <summary>
-        /// Абстрактный метод удаления человека из хранилище
+        /// Удаляет объект из хранилища.
         /// </summary>
-        /// <param name="entry"></param>
+        /// <param name="entry">Объект, который нужно удалить из хранилища.</param>
         public abstract void RemovePerson(T entry);
+
         /// <summary>
-        /// Абстрактный метод получения человека из хранилища по параметру
+        /// Получает объект из хранилища по параметру.
         /// </summary>
-        /// <param name="entry"></param>
-        /// <returns></returns>
+        /// <param name="entry">Параметр для поиска объекта.</param>
+        /// <returns>Найденный объект типа <typeparamref name="T"/>.</returns>
         public abstract T GetPerson2(string entry);
 
         /// <summary>
-        /// Абстрактный метод вывода на консоль все людей из хранилища
+        /// Выводит все объекты из хранилища на консоль.
         /// </summary>
         public abstract void PrintPersons();
 
         /// <summary>
-        /// Метод Сериализации данных
+        /// Сериализует данные объектов в файл.
         /// </summary>
         protected virtual void SerealizeData()
         {
@@ -66,14 +81,17 @@ namespace HomeWork3
                     strBuild.AppendLine($"{person.Name}");
                 }
                 else if (abonent is Abonent abonen)
+                {
                     strBuild.AppendLine($"{abonent.Name}:{abonen.PhoneNumber}");
+                }
             }
             File.WriteAllText(fullpath, strBuild.ToString());
         }
+
         /// <summary>
-        /// Метод Загрузки данных из хранилища в оперативную память
+        /// Загружает данные в хранилище из предоставленного перечисления объектов.
         /// </summary>
-        /// <param name="abonents"></param>
+        /// <param name="abonents">Перечисление объектов для загрузки в хранилище.</param>
         protected void LoadData(IEnumerable<T> abonents)
         {
             _abonents.AddRange(abonents);
