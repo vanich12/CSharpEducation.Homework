@@ -14,12 +14,12 @@ namespace HomeWork3
         #region Поля и свойства
 
         /// <summary>
-        /// Получает или задает номер телефона абонента.
+        /// Номер телефона абонента.
         /// </summary>
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Получает или задает имя абонента.
+        /// Имя абонента.
         /// </summary>
         public new string Name { get; set; }
 
@@ -40,7 +40,7 @@ namespace HomeWork3
 
         #endregion
 
-        #region Методы
+        #region Базовый класс
 
         /// <summary>
         /// Определяет, равен ли текущий объект другому объекту.
