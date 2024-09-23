@@ -49,7 +49,7 @@ namespace HomeWork3
         /// <param name="abonent">Абонент, которого нужно добавить.</param>
         public override void AddPerson(Abonent abonent)
         {
-            if (!this._abonents.Any(x => x.Equals(abonent)))
+            if (!this._abonents.Any(x => x == abonent))
             {
                 this._abonents.Add(abonent);
             }
