@@ -10,36 +10,21 @@ namespace HomeWork3
     internal class PhoneBook : Repository<Abonent>
     {
         #region Поля и свойства
+        
+        /// <summary>
+        /// Путь до файла записи
+        /// </summary>
 
         private readonly string _filePath;
+
+        /// <summary>
+        /// Абоненты
+        /// </summary>
 
         private readonly List<Abonent> _abonents = new List<Abonent>();
 
         #endregion
 
-        #region Конструкторы
-
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="PhoneBook"/> с использованием текущей директории для хранения данных.
-        /// </summary>
-        public PhoneBook() : this(Directory.GetCurrentDirectory())
-        {
-        }
-
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="PhoneBook"/> с заданным путем для хранения данных.
-        /// </summary>
-        /// <param name="filePath">Путь к файлу данных.</param>
-        public PhoneBook(string filePath) : base(filePath)
-        {
-            this._filePath = filePath;
-            DeserealizeData();
-
-            // Подписка на событие завершения работы приложения
-            AppDomain.CurrentDomain.ProcessExit += (s, e) => SerealizeData();
-        }
-
-        #endregion
 
         #region Методы
 
@@ -152,6 +137,30 @@ namespace HomeWork3
             }
 
             File.WriteAllText(fullpath, strBuild.ToString());
+        }
+
+        #endregion
+
+        #region Конструкторы
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="PhoneBook"/> с использованием текущей директории для хранения данных.
+        /// </summary>
+        public PhoneBook() : this(Directory.GetCurrentDirectory())
+        {
+        }
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="PhoneBook"/> с заданным путем для хранения данных.
+        /// </summary>
+        /// <param name="filePath">Путь к файлу данных.</param>
+        public PhoneBook(string filePath) : base(filePath)
+        {
+            this._filePath = filePath;
+            DeserealizeData();
+
+            // Подписка на событие завершения работы приложения
+            AppDomain.CurrentDomain.ProcessExit += (s, e) => SerealizeData();
         }
 
         #endregion

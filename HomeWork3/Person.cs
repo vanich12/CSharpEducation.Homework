@@ -13,22 +13,13 @@ namespace HomeWork3
     {
         #region Поля и свойства
 
+        /// <summary>
+        /// Имя абонента
+        /// </summary>
         public string Name { get; }
 
         #endregion
 
-        #region Конструкторы
-
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="Person"/> с указанным именем.
-        /// </summary>
-        /// <param name="name">Имя человека.</param>
-        public Person(string name)
-        {
-            this.Name = name;
-        }
-
-        #endregion
 
         #region Методы
 
@@ -54,6 +45,19 @@ namespace HomeWork3
         public override int GetHashCode()
         {
             return this.Name.GetHashCode();
+        }
+
+        #endregion
+
+        #region Конструкторы
+
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Person"/> с указанным именем.
+        /// </summary>
+        /// <param name="name">Имя человека.</param>
+        public Person(string name)
+        {
+            this.Name = name;
         }
 
         #endregion

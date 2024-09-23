@@ -14,21 +14,21 @@ namespace HomeWork3
     {
         #region Поля и свойства
 
+        /// <summary>
+        /// Путь до файла
+        /// </summary>
         private readonly string _filePath;
+
+        /// <summary>
+        /// Абоненты
+        /// </summary>
         private List<T> _abonents = new List<T>();
 
         #endregion
 
-        #region Конструкторы
-
-        public Repository(string filePath)
-        {
-            this._filePath = filePath;
-        }
-
-        #endregion
 
         #region Методы
+
         /// <summary>
         /// Добавление человека в хранилище
         /// </summary>
@@ -40,6 +40,7 @@ namespace HomeWork3
         /// </summary>
         /// <param name="entry"></param>
         public abstract void RemovePerson(T entry);
+
         /// <summary>
         /// Получение человека из хранилища по параметру
         /// </summary>
@@ -68,8 +69,10 @@ namespace HomeWork3
                 else if (abonent is Abonent abonen)
                     strBuild.AppendLine($"{abonent.Name}:{abonen.PhoneNumber}");
             }
+
             File.WriteAllText(fullpath, strBuild.ToString());
         }
+
         /// <summary>
         /// Загрузка данных из хранилища в оперативную память
         /// </summary>
@@ -77,6 +80,19 @@ namespace HomeWork3
         protected void LoadData(IEnumerable<T> abonents)
         {
             _abonents.AddRange(abonents);
+        }
+
+        #endregion
+
+        #region Конструкторы
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="filePath"></param>
+        public Repository(string filePath)
+        {
+            this._filePath = filePath;
         }
 
         #endregion

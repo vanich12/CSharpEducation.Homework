@@ -25,20 +25,6 @@ namespace HomeWork3
 
         #endregion
 
-        #region Конструкторы
-
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="Abonent"/> с указанными именем и номером телефона.
-        /// </summary>
-        /// <param name="name">Имя абонента.</param>
-        /// <param name="phoneNumber">Номер телефона абонента.</param>
-        public Abonent(string name, string phoneNumber) : base(name)
-        {
-            this.Name = name;
-            this.PhoneNumber = phoneNumber;
-        }
-
-        #endregion
 
         #region Базовый класс
 
@@ -64,6 +50,22 @@ namespace HomeWork3
         public override int GetHashCode()
         {
             return this.Name.GetHashCode() + this.PhoneNumber.GetHashCode();
+        }
+
+        #endregion
+
+
+        #region Конструкторы
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="name">Имя абонента.</param>
+        /// <param name="phoneNumber">Номер телефона абонента.</param>
+        public Abonent(string name, string phoneNumber) : base(name)
+        {
+            this.Name = name;
+            this.PhoneNumber = phoneNumber;
         }
 
         #endregion
