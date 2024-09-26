@@ -1,0 +1,18 @@
+# Временные файлы Visual Studio
+.vs/
+*.user
+*.suo
+
+# Временные файлы системы
+*.obj
+*.exe
+*.log
+*.bin
+*.dll
+
+# Папки Debug и Release
+bin/
+obj/
+
+# Папка с зависимостями
+packages/
