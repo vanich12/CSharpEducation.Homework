@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанные с этой сборкой.
-[assembly: AssemblyTitle("HomeWork3")]
+[assembly: AssemblyTitle("HomeWork4-5")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HomeWork3")]
+[assembly: AssemblyProduct("HomeWork4-5")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID представляет идентификатор typelib, если этот проект доступен из модели COM
-[assembly: Guid("8343c137-9dd8-4e11-852d-133eb166d95b")]
+[assembly: Guid("fdd20b20-9348-472e-a05a-8207b37e3c8d")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
